@@ -1,0 +1,654 @@
+:root {
+    --text: #404040;
+    --fontIcon: #1585d4;
+    --body-color:#0F1416;
+    --menu-color:linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+    --text-color:rgb(204 204 204 );
+
+    --active-tab-color: #f44336;
+    --random-movie-box: #181D1F;
+    --text-random-color: #78909C;
+    --green-color:#B5E745;
+    --light-red: #CE9090;
+}
+
+/* ===========BASE =============== */
+body {
+    background-color: var(--body-color);
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: Montserrat;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    z-index: 100;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.homepage {
+    /* background: linear-gradient(black,transparent); */
+    background: var(--menu-color);
+    width:100%;
+    overflow: hidden;
+}
+/* CSS MENU */
+ul.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+ul.main-menu li a {
+    /* color: var(--text); */
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    /* background-color: rgb(255, 255, 255); */
+    /* background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%); */
+    transform: skewX(-25deg);
+    border-left: 1px solid #ddd;    
+    position: relative;
+}
+
+
+ul.main-menu li:last-child a{
+    border-right: 1px solid #ddd;
+}
+
+ul.main-menu li a div {
+    display: inline-block;
+}
+
+/* content đứng thẳng */
+ul.main-menu li a i,
+ul.main-menu li a div {
+    transform: skewX(25deg);
+    
+}
+
+ul.main-menu li a i {
+    color: var(--fontIcon);
+}
+
+
+/* CSS Hieu ung menu */
+ul.main-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    /* kéo bên phải về 0 */
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+ul.main-menu li a:hover::after {
+    transform: scale(1);
+    transform-origin: left;
+}
+/* END CSS MENU */
+
+/* CSS SLIDER */
+
+.slider {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;   
+}
+
+.list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* all ảnh nằm ngang */
+    display: flex;
+    /* width: max-content; */
+    transition: 0.8s;
+}
+
+.list img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* ========button prev next ============ */
+.arrows {
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff5;
+    color: #fff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/* ===========css dots============== */
+
+ul.dots {
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+ul.dots li {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px;
+    transition: 0.8s;
+}
+
+ul.dots li.active {
+    width: 40px;
+}
+
+/* ==========CSS CONTENT SLIDE =============== */
+
+.slider .list .item {
+    position: relative;
+}
+
+
+.slider .list .item .content {
+    position: absolute;
+    top:25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1140px;
+    max-width: 80%;
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #6c6767;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.slider .list .item .content .author {
+    font-weight: bold;
+    letter-spacing: 10px;
+    color: white;
+}
+
+.slider .list .item .content .title,
+.slider .list .item .content .topic {
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+    color: #fff;
+}
+
+.slider .list .item .content .topic {
+    color: orangered;
+}
+
+.slider .list .item .content .des {
+    color: rgb(241, 244, 244);
+}
+
+.slider .list .item .content .buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.slider .list .item .content .buttons button {
+    padding: 10px 20px;
+    border: none;
+}
+
+.slider .list .item .content button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #000000;
+    color: #ffffff;
+}
+
+.filter {
+    margin-top: -0.8rem;
+    width: 100%;
+    height: 30px;
+    /* position: absolute; */
+    position: relative;
+    background-color: var(--body-color);
+    z-index: 1;
+    filter: blur(8px);
+}
+
+/* END CSS SLIDER */
+
+/* CSS CONTENT SLIDER EFFECT */
+.slider .list .item.effect .content .author,
+.slider .list .item.effect .content .title,
+.slider .list .item.effect .content .topic,
+.slider .list .item.effect .content .des,
+.slider .list .item.effect .content .buttons{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slider .list .item.effect .content .title {
+    animation-delay: 1.2s;
+}
+
+.slider .list .item.effect .content .topic {
+    animation-delay: 1.4s;
+}
+
+.slider .list .item.effect .content .des {
+    animation-delay: 1.6s;
+}
+
+.slider .list .item.effect .content .buttons {
+    animation-delay: 1.8s;
+}
+
+
+
+/* ======CSS CONTAINER CONTENT========= */
+
+.container-main {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* =========VÙNG TRÁI========= */
+/* Chia lưới  */
+section.left {
+    width: 70%;
+}
+
+.main-content {
+    padding-inline: 1%;
+    box-sizing: border-box;
+}
+
+.showcase-area {
+    width: 100%;
+    height: auto;
+    background-color: var(--body-color);
+    /* padding-inline: 1%; */
+}
+
+
+.showcase-area .viewAll {
+    position: relative;
+    margin: 0 0 10px 0;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 5px;
+    background: #161e21;
+    color: white;
+    
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-inline: 1%; */
+}
+
+.movie-list .movie-item {
+    width: 20%;
+    position: relative;
+    border-radius: 10px;
+    /* overflow: hidden;     */
+}
+
+.movie-item .movie-info img {
+    width: 100%;
+}
+
+.movie-item .movie-info .movie-title {
+    display: block;
+    color: white;
+    white-space: nowrap; /* Ngăn dòng xuống */
+    overflow: hidden; /* Ẩn phần tràn */
+    text-overflow: ellipsis; /* Thay thế phần tràn bằng dấu ba chấm */
+}
+
+.movie-item .movie-info {
+    padding: 3%;
+    /* box-sizing: border-box; */
+}
+
+/* CSS hiệu ứng nút play */
+
+.movie-item .movie-info .movie-image {
+    height: max-content;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-item .movie-info .movie-image .bg-img {
+    position: absolute;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0;
+    background-color: rgba(15, 15, 15, 0.219);
+    /* max-height: 0; */
+    /* top: 50%;
+    right: 50%; */
+    /* transform: translate(50%,-50%); */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0 !important;
+    transition: .3s;
+}
+
+
+.movie-item:hover .movie-info .movie-image .bg-img {
+    opacity: 1 !important;
+    font-size: 3rem;
+    /* max-height: 100%; */
+
+}
+
+/* Tooltip cho movie */
+
+.movie-item .tooltip-details {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    background-color: white;
+    padding: 0.5rem;
+    width: 250px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10;
+    transform: translateY(-57%);
+}
+
+.movie-item .tooltip-details::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+
+.movie-item:hover .tooltip-details {
+    display: block !important;
+}
+
+.tooltip-details .tooltip-title {
+    font-weight: bold;
+    color: #111;
+}
+
+.tooltip-details .tooltip-config {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.tooltip-details .tooltip-config div:not(:first-child) {
+    display: block;
+    padding-right: 0.8rem;
+    align-items: center;
+}
+
+.tooltip-details .tooltip-config div:first-child {
+    background-color: red;
+    color: whitesmoke;
+    margin-right: 0.3rem;
+    padding: 0.3rem 0.4rem;
+    border-radius: 20px;
+}
+
+.tooltip-details .tooltip-config div.rate {
+    color: rgb(36, 215, 36);
+    padding-left: 0.3rem;
+}
+
+.tooltip-details .tooltip-des {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.tooltip-details .tooltip-info {
+    font-weight: bold;
+    color: #5f717a;
+}
+
+.tooltip-details .tooltip-info i {
+    color: rgb(71, 235, 71);
+}
+
+.tooltip-details .tooltip-info span {
+    color: #111;
+    font-weight: initial;
+}
+
+
+
+/* CSS menu movie Hiệu ứng hộp move */
+
+ul.tab {
+    display: flex;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    /* background-color: var(--black-color); */
+    align-items: center;
+    padding-inline: 0.4%;
+    width: 100%;
+    height: min-content;
+}
+
+ul.tab>li>a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    font-weight: 700;
+    /* pointer-events: none; */
+    /* font-size: 1.5rem; */
+    /* background-color: var(--black-color-lighten); */
+    /* margin-right: 0.5rem ;
+    margin-bottom: 0.5rem ;
+    border-radius: 10px; */
+}
+
+ul.tab>li {
+    position: relative;
+    z-index: 1;
+}
+
+ul.tab>h1 {
+    color: #eee;
+    font-size: 18px;
+    background: linear-gradient(81.43deg, #b71c1c -26.81%, #8e1438 87.89%);
+    border-radius: 6px;
+    padding: 8px;
+    margin: 0 10px 0 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    /* margin: 0; */
+    text-align: center;
+    height: min-content;
+}
+
+.active-tab>a {
+    color: var(--active-tab-color) !important;
+    /* box-shadow: 3px 3px rgba(29, 26, 26, 0.526); */
+}
+
+.tab-content {
+    display: block;
+}
+
+/* ========END VÙNG TRÁI=========== */
+
+/* ==========CSS VÙNG PHẢI=========== */
+
+section.right {
+    width: 30%;
+    height: 400px;
+    /* background-color: gray; */
+    margin-top: 2rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+.random-movie {
+    width: 100%;
+    background-color: var(--random-movie-box);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.right .title {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.right .title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    background-color: var(--green-color);
+}
+
+.right .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #282C2E;
+}
+
+.random-movie p {
+    color: var(--text-random-color);
+    margin: 1.3rem 0;
+}
+
+.random-movie a{
+    width: 70%;
+    background-color: #B71C1C;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 2px;
+}
+
+.comment-facebook {
+    background-color: var(--random-movie-box);
+    width: 100%;
+    margin-top: 1rem;
+    height: max-content;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+
+.comment-facebook .fb-comments {
+    background-color: white;
+    margin-top: 1.4rem;
+}
+
+.top-channels {
+    background-color: var(--random-movie-box);
+    width: 100%;
+    margin-top: 1rem;
+    height: max-content;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+ul.list-channels {
+    margin-top: 1rem;
+}
+
+ul.list-channels li a {
+    display: block;
+    padding: 0.5rem;
+    color: var(--light-red);
+    border-bottom: 1px solid black;
+}
+
+ul.list-channels li a:hover {
+    border-left: 3px solid red;
+    color: #eee;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách lịch</title>
+    <style>
+        .item-lich {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            background-color: rgb(47, 44, 44);
+            color: white;
+            padding: 1rem 5px;
+        }
+
+        .item-lich .title {
+            margin-left: 1rem;
+        }
+
+        .past {
+            color: white;
+        }
+
+        .current {
+            color: white;
+            background-color: #5e5959;
+        }
+
+        .upcoming {
+            color: #454545;
+        }
+
+        #list-lich {
+            width: 400px;
+            background-color: #eee;
+            height: 50vh;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list-lich">
+        <!-- Danh sách lịch sẽ được thêm vào đây -->
+    </div>
+
+    <script>
+        function createItemHTML(time, title, classs) {
+            return `
+                <div class="item-lich ${classs}">
+                    <span class="time">${time}</span>
+                    <span class="title">${title}</span>
+                </div>
+            `;
+        }
+
+        function addItemsToList(items) {
+            const listLich = document.getElementById('list-lich');
+            listLich.innerHTML = ''; // Xóa nội dung hiện tại
+
+            let now = new Date();
+            let currentTime = now.getHours() * 60 + now.getMinutes(); // Chuyển thời gian hiện tại thành phút
+
+            // Thêm các item vào danh sách
+            items.forEach(item => {
+                // let [hours, minutes] = item.time.split(':').map(Number);
+                // let itemTime = hours * 60 + minutes; // Chuyển thời gian của item thành phút
+
+                let timeParts = item.time.split(':');
+                let hours = parseInt(timeParts[0], 10);
+                let minutes = parseInt(timeParts[1], 10);
+
+                let itemTime = hours * 60 + minutes;
+
+                let s = '';
+                if (itemTime < currentTime) {
+                    s = "past";
+                } else if (itemTime >= currentTime - 30 && itemTime <= currentTime + 30) {
+                    s = "current";
+                } else {
+                    s = 'upcoming';
+                }
+
+                const itemHTML = createItemHTML(item.time, item.title, s);
+                listLich.insertAdjacentHTML('beforeend', itemHTML);
+            });
+
+            // Cuộn đến phần tử có class 'current'
+            let currentElement = listLich.querySelector('.current');
+            if (currentElement) {
+                listLich.scrollTo({
+                    top: currentElement.offsetTop - 450,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Tạo dữ liệu items với thời gian từ 00:00 đến 23:55, mỗi 5 phút
+        // const items = [];
+        // for (let hour = 0; hour < 24; hour++) {
+        //     for (let minute = 0; minute < 60; minute += 30) {
+        //         let time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+        //         items.push({ time: time, title: `Item ${hour}:${minute}` });
+        //     }
+        // }
+
+        const items = [];
+        const movieTitles = [
+            "Ký Sinh Trùng",
+            "Ròm",
+            "Mắt Biếc",
+            "Để Mai Tính",
+            "Tôi Thấy Hoa Vàng Trên Cỏ Xanh",
+            "Hai Phượng",
+            "Em Là Bà Nội Của Anh",
+            "Lật Mặt 48h",
+            "Bố Già",
+            "Cô Gái Đến Từ Hôm Qua",
+            "Tháng Năm Rực Rỡ",
+            "Song Lang",
+            "Người Bất Tử",
+            "Về Nhà Đi Con",
+            "Những Đứa Con Nhà Họ Nguyễn",
+            "Người Phán Xử",
+            "Lôi Báo",
+            "Số Đỏ",
+            "Chị Mười Ba",
+            "Tiệc Trăng Máu",
+            "Mẹ Chồng",
+            "Gái Già Lắm Chiêu",
+            "Cánh Đồng Bất Tận",
+            "Hương Ga"
+        ];
+        let count = 0;
+        for (let hour = 0; hour < 24; hour++) {
+            for (let minute = 0; minute < 60; minute += 30) {
+                let time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+                // let titleIndex = (hour * 2 + minute / 30) % movieTitles.length;
+                count = [count % movieTitles.length];
+                items.push({ time: time, title: movieTitles[count] });
+                count++;
+            }
+        }
+
+        // Gọi hàm để thêm các item vào danh sách
+        addItemsToList(items);
+    </script>
+</body>
+
+</html>

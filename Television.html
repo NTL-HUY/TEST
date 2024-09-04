@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Import font Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- import font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Import animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- import Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- link css js -->
+    <link rel="stylesheet" href="css/Television.css">
+    <script src="js/television.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="homepage flex">
+            <div class="logo">
+                <!-- <a href="index.html"></a> -->
+                <img src="https://www.htv.com.vn/Data/Sites/1/media/logo.png" alt="">
+            </div>
+
+            <div class="menuContent">
+                <ul class="main-menu">
+                    <li><a href="#">
+                            <i class="fa-solid fa-tv"></i>
+                            <div>htv Show</div>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <div>tin tức</div>
+                        </a></li>
+                    <li><a href="#">
+                            <div>chuyên đề</div>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fa-regular fa-circle-play"></i>
+                            <div>trực tuyến</div>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <div>lịch phát sóng</div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <section class="video-section">
+            <div class="video-player">
+                <iframe width="866" height="487" src="https://www.youtube.com/embed/V9CY0F4Wc7M"
+                    title="The &quot;scroll&quot; event in JavaScript | window.onscroll" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div id="list-lich">
+                <!-- Danh sách lịch sẽ được thêm vào đây -->
+            </div>
+        </section>
+
+
+        <section class="channel-section">
+            <div class="tab-container">
+                <ul class="tab">
+                    <li class="active-tab"><a href="#tab1-1">Danh sách kênh</a></li>
+                    <li><a href="#tab2-1">Đang phát sóng</a></li>
+                </ul>
+
+                <!-- Danh sách kênh -->
+                <div id="tab1-1" class="tab-content active-content">
+                    <div class="tab-container sub1 sub">
+                        <ul class="tab">
+                            <!-- <li><a href="#tab1-1-sub1">kênh</a></li>
+                            <li><a href="#tab1-1-sub2">sóng</a></li> -->
+                            <li><a href="#tab1-1-sub1">VTV</a></li>
+                            <li><a href="#tab1-1-sub2">HTV</a></li>
+                            <li><a href="#tab1-1-sub3">K+</a></li>
+                            <li><a href="#tab1-1-sub4">THVL</a></li>
+                            <li><a href="#tab1-1-sub5">HBO GO</a></li>
+                            <li><a href="#tab1-1-sub6">VTC</a></li>
+                            <li><a href="#tab1-1-sub7">Quốc tế</a></li>
+                            <li><a href="#tab1-1-sub8">VTV7</a></li>
+                            <!-- <li><a href="#tab1-1-sub9">Thiết yếu</a></li> -->
+                            <!-- <li><a href="#tab1-1-sub10">Địa phương</a></li> -->
+                        </ul>
+                        <!-- <div id="tab1-1-sub1" class="tab-content">2 Nội dung tab 1 - Sub 1</div>
+                        <div id="tab1-1-sub2" class="tab-content">2 Nội dung tab 1 - Sub 2</div> -->
+
+                        <!-- VTV -->
+                        <div class="tab-content" id="tab1-1-sub1">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HTV -->
+                        <div class="tab-content" id="tab1-1-sub2">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- K+ -->
+                        <div class="tab-content" id="tab1-1-sub3">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- THVL -->
+                        <div class="tab-content" id="tab1-1-sub4">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HBO GO -->
+                        <div class="tab-content" id="tab1-1-sub5">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VTC -->
+                        <div class="tab-content" id="tab1-1-sub6">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quốc tế -->
+                        <div class="tab-content" id="tab1-1-sub7">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VTV7 -->
+                        <div class="tab-content" id="tab1-1-sub8">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Đang phát sóng -->
+                <div id="tab2-1" class="tab-content">
+
+                    1 Nội dung tab 2
+                    <div class="tab-container sub2 sub">
+                        <ul class="tab">
+                            <li class="active-tab"><a href="#tab2-1-sub1">Tin Tức</a></li>
+                            <li><a href="#tab2-1-sub2">Thể Thao</a></li>
+                        </ul>
+                        <div id="tab2-1-sub1" class="tab-content">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2-1-sub2" class="tab-content">
+                            <div class="list-channel-container">
+                                <div class="list-items">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-channel-container">
+                <div class="list-items">
+
+                    <!-- <div class="gap-item">
+                        <div class="item">
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/06/14/pyw7qyf1_vtv1_tet_hoa_xuan_cae436b7770f8da626663ad71801953920_296_168.webp"
+                                alt="">
+                        </div>
+                        <div class="more-info">
+                            <div class="info-container">
+                                <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/06/14/pyw7qyf1_vtv1_tet_hoa_xuan_cae436b7770f8da626663ad71801953920_296_168.webp"
+                                    alt="">
+                                <div class="buttons">
+                                    <button id="xem-ngay">Xem ngay</button>
+                                    <button id="danh-sach">Danh sách</button>
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

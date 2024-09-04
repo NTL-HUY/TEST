@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách lịch</title>
+    <style>
+        .item-lich {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+            margin: 5px 0;
+        }
+
+        .item-lich {
+            background-color: rgb(47, 44, 44);
+            color: white;
+            margin: 0;
+            padding: 1rem 5px;
+        }
+
+        .item-lich .title {
+            margin-left: 1rem;
+        }
+
+        .past {
+            color: white;
+        }
+
+        .current {
+            color: white;
+            background-color: #5e5959;
+        }
+
+        .upcoming {
+            color: #454545;
+        }
+
+        #list-lich {
+            width: 400px;
+            background-color: #eee;
+            height: 50vh;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list-lich">
+        <!-- Danh sách lịch sẽ được thêm vào đây -->
+    </div>
+
+    <script>
+        // Hàm để tạo HTML cho một item
+        function createItemHTML(index, title, classs) {
+            return `
+                <div class="item-lich ${classs}">
+                    <span class="time">${index}</span>
+                    <span class="title">${title}</span>
+                </div>
+            `;
+        }
+
+        // Hàm để thêm nhiều item vào danh sách
+        function addItemsToList(items) {
+            // const listLich = document.getElementById('list-lich');
+            const listLich = document.getElementById('list-lich');
+            while (listLich.firstChild) {
+                listLich.removeChild(listLich.firstChild);
+            }
+            // Duyệt qua từng item và chèn HTML vào danh sách
+            // items.forEach(item => {
+            //     const itemHTML = createItemHTML(item.index, item.title);
+            //     listLich.insertAdjacentHTML('beforeend', itemHTML);
+            // });
+            let now = new Date();
+            let second = now.getSeconds();
+
+
+            for (let i = 0; i < items.length; i++) {
+                let s = '';
+                if (items[i].index < second) {
+                    s = "past";
+                } else if (items[i].index == second) {
+                    s = "current";
+                } else {
+                    s = 'upcoming';
+                }
+                const itemHTML = createItemHTML(items[i].index, items[i].title, `${s}`);
+                listLich.insertAdjacentHTML('beforeend', itemHTML);
+            }
+
+            // Cuộn đến phần tử có class 'current'
+            const currentElement = listLich.querySelector('.current');
+            if (currentElement) {
+                currentElement.scrollIntoView({
+                    behavior: 'smooth', // Cuộn mượt mà
+                    block: 'center'     // Đưa phần tử vào giữa của vùng nhìn thấy
+                });
+            }
+        }
+
+
+        function updateLich() {
+            // let listItems = document.querySelectorAll('item')
+        }
+
+        // Thêm nhiều item vào danh sách
+        const items = [
+            { index: 1, title: 'A' },
+            { index: 2, title: 'B' },
+            { index: 3, title: 'C' },
+            { index: 4, title: 'D' },
+            { index: 5, title: 'E' },
+            { index: 6, title: 'F' },
+            { index: 7, title: 'G' },
+            { index: 8, title: 'H' },
+            { index: 9, title: 'I' },
+            { index: 10, title: 'J' },
+            { index: 11, title: 'K' },
+            { index: 12, title: 'L' },
+            { index: 13, title: 'M' },
+            { index: 14, title: 'N' },
+            { index: 15, title: 'O' },
+            { index: 16, title: 'P' },
+            { index: 17, title: 'Q' },
+            { index: 18, title: 'R' },
+            { index: 19, title: 'S' },
+            { index: 20, title: 'T' },
+            { index: 21, title: 'U' },
+            { index: 22, title: 'V' },
+            { index: 23, title: 'W' },
+            { index: 24, title: 'X' },
+            { index: 25, title: 'Y' },
+            { index: 26, title: 'Z' },
+            { index: 27, title: 'A1' },
+            { index: 28, title: 'A2' },
+            { index: 29, title: 'A3' },
+            { index: 30, title: 'A4' },
+            { index: 31, title: 'A5' },
+            { index: 32, title: 'A6' },
+            { index: 33, title: 'A7' },
+            { index: 34, title: 'A8' },
+            { index: 35, title: 'A9' },
+            { index: 36, title: 'A10' },
+            { index: 37, title: 'A11' },
+            { index: 38, title: 'A12' },
+            { index: 39, title: 'A13' },
+            { index: 40, title: 'A14' },
+            { index: 41, title: 'A15' },
+            { index: 42, title: 'A16' },
+            { index: 43, title: 'A17' },
+            { index: 44, title: 'A18' },
+            { index: 45, title: 'A19' },
+            { index: 46, title: 'A20' },
+            { index: 47, title: 'A21' },
+            { index: 48, title: 'A22' },
+            { index: 49, title: 'A23' },
+            { index: 50, title: 'A24' },
+            { index: 51, title: 'A25' },
+            { index: 52, title: 'A26' },
+            { index: 53, title: 'A27' },
+            { index: 54, title: 'A28' },
+            { index: 55, title: 'A29' },
+            { index: 56, title: 'A30' },
+            { index: 57, title: 'A31' },
+            { index: 58, title: 'A32' },
+            { index: 59, title: 'A33' },
+            { index: 60, title: 'A34' }
+        ];
+
+        // console.log(items);
+
+
+        // Gọi hàm để thêm các item vào danh sách
+        setInterval(function () {
+            addItemsToList(items);
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
