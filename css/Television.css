@@ -320,8 +320,14 @@ ul.main-menu li a:hover::after {
         max-height: 560px;
         overflow: auto;
         z-index: 1;
-        display: none;
+        /* display: fixed; */
+        position: fixed;
+        top: 40%;
+        left: 0;
+        right: 0;
+        bottom: 0;
         /* flex: 1; */
+        display: none;
     }
 }
 
@@ -484,6 +490,10 @@ ul.main-menu li a:hover::after {
         box-sizing: border-box;
         position: relative;
     }
+
+    main {
+        overflow: hidden;
+    }
 }
 
 
@@ -605,6 +615,10 @@ ul.main-menu li a:hover::after {
     .save-list-items .item {
         width: 50%;
     }
+
+    #hide-lich {
+        display: none;
+    }
 }
 /* .save-list-items .buttons button:nth-child(2){
     background-color: rgba(0, 0, 0, 0.167);
@@ -665,6 +679,41 @@ ul.main-menu li a:hover::after {
 
 
 /* ========== end save-channel=========== */
+
+/* ========button show schedule======= */
+.show-schedule {
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    /* background-color: white; */
+    z-index: 999;
+    display: none;
+}
+
+.show-schedule button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #eee;
+    /* position: absolute; */
+}
+
+.show-schedule button#hide-lich {
+    position: fixed;
+    top: 30%;
+    right: 10px;
+    z-index: 9999;
+}
+
+@media screen and (max-width: 1024px) {
+    .show-schedule {
+        display: block;
+    }
+}
+
+/* ========end button show schedule======= */
+
 
 
 
