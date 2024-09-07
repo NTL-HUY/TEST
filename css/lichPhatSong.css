@@ -1,0 +1,443 @@
+:root {
+    --text: #404040;
+    --fontIcon: #1585d4;
+    --body-color: #0F1416;
+    --menu-color: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+    --text-color: rgb(204 204 204);
+
+    --active-tab-color: #f44336;
+    --random-movie-box: #181D1F;
+    --text-random-color: #78909C;
+    --green-color: #B5E745;
+    --light-red: #CE9090;
+
+    --red-color : #901436;
+    --bottom-body: #263238;
+}
+
+/* ===========BASE =============== */
+body {
+    background-color: var(--bottom-body);
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: Montserrat;
+}
+main {
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.homepage {
+    /* background: linear-gradient(black,transparent); */
+    background: var(--menu-color);
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* CSS MENU */
+ul.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+ul.main-menu li a {
+    /* color: var(--text); */
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    /* background-color: rgb(255, 255, 255); */
+    /* background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%); */
+    transform: skewX(-25deg);
+    border-left: 1px solid #3a3a3a;
+    position: relative;
+}
+
+
+ul.main-menu li:last-child a {
+    border-left: 1px solid #3a3a3a;
+}
+
+ul.main-menu li a div {
+    display: inline-block;
+}
+
+/* content đứng thẳng */
+ul.main-menu li a i,
+ul.main-menu li a div {
+    transform: skewX(25deg);
+
+}
+
+ul.main-menu li a i {
+    color: var(--fontIcon);
+}
+
+
+/* CSS Hieu ung menu */
+ul.main-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    /* kéo bên phải về 0 */
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+ul.main-menu li a:hover::after {
+    transform: scale(1);
+    transform-origin: left;
+}
+
+/* CSS BUTTON */
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: #B71C1C;
+    display: none;
+    margin-right: 0.5rem;
+}
+
+.toggle-btn button {
+    color:white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    /* width: 100%; */
+    z-index: 9999;
+    cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+    .homepage {
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+        /* max-width: ; */
+        box-sizing: border-box;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .toggle-btn .close,
+    .toggle-btn .bars {
+        transition: opacity .1s, transform .4s;
+    }
+
+    .toggle-btn .close {
+        opacity: 0;
+    }
+
+    .show-menu {
+        width: 60vw !important;
+    }
+
+    .show-icon .bars {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .show-icon .close {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    .menuContent {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* right: 30%; */
+        bottom: 0;
+        width: 0;
+        background-color: rgb(34, 32, 32);
+        overflow: hidden;
+        transition: .5s;
+    }
+
+    ul.main-menu {
+        flex-direction: column;
+    }
+
+    ul.main-menu li a {
+        text-align: center;
+        transform: none;
+        padding: 2rem;
+    }
+
+    ul.main-menu li a:hover {
+        background-color: var(--text);
+    }
+
+    ul.main-menu li a i,
+    ul.main-menu li a div {
+        transform: none;
+    }
+}
+
+/* END CSS MENU */
+
+
+/* ========MAIN=========== */
+
+.width-fixed {
+    width: 80%;
+}
+
+main {
+    margin: 0 auto;
+    margin-top: 3.5rem;
+    padding: 1rem 1rem;
+    height: max-content;
+    background-color: var(--body-color);
+    margin-top: 5rem;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.home-schedule {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    /* height: 100%; */
+    /* height: 200px; */
+    /* background-color: blue; */
+}
+
+.home-schedule .fix {
+    padding: 0 0.5rem;
+}
+
+.home-schedule .day {
+    background: linear-gradient(81.43deg, #b71c1c -26.81%, #8e1438 87.89%);
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.list-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.list-content .item {
+    width: 20%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    /* height: 200px; */
+}
+
+.list-content .item .title {
+    color: white;
+    text-align: center;
+    font-size: large;
+    padding: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list-content .item:hover .title {
+    color: #1585d4;
+}
+
+.list-content .item img {
+    width: 100%;
+    /* height: 150px; */
+    object-fit: cover;
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .width-fixed {
+        width: 100%;
+    }
+    .list-content .item {
+        width: 25%;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        /* height: 200px; */
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .list-content .item {
+        width: 50%;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        /* height: 200px; */
+    }
+}
+
+
+/* ======== END MAIN=========== */
+
+
+/* ============footer========== */
+footer {
+    margin-top: 2rem;
+    width: 100%;
+    height: max-content;
+    background-image: url(https://lawsmithandco.in/static/media/Footer-Background.e0626ebb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
+.foot-top {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1rem;
+    justify-content: space-between;
+    /* align-items: center; */
+    border-bottom: 1px solid gray;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+ul.foot-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.foot-menu.foot-connect {
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.foot-logo {
+    margin: auto 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+ul.foot-menu.foot-connect li {
+    padding: 1rem;
+    background-color: #475666;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    transform: skewX(-30deg);
+    box-sizing: border-box;
+    /* margin-bottom: 1rem; */
+}
+
+ul.foot-menu.foot-connect li i {
+    display: block;
+    transform: skewX(30deg);
+}
+
+ul.foot-menu li {
+    display: block;
+    padding: 0.3rem 1rem;
+    color: rgb(156, 152, 152);
+}
+
+.foot-top .title {
+    padding: 1rem 1rem;
+    color: #97b9d0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.foot-bottom .foot-menu {
+    margin-top: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.foot-bottom .foot-menu li {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.foot-bottom .foot-menu li:not(:last-child) {
+    border-right: 1px solid #475666;
+}
+
+.foot-bottom .des {
+    /* margin-top: 1rem; */
+    padding: 1rem;
+    text-align: center;
+    color: #5f717a;
+}
+
+@media screen and (max-width: 760px) {
+    footer {
+        background-color: #475666;
+    }
+
+    .foot-bottom .foot-menu li {
+        border-bottom: 1px solid #475666;
+        border-right: none !important;
+    }
+
+
+}
+
+
+
+/* .foot-top > div {
+    display: flex;
+    flex-direction: column;
+} */
+/* ============ end footer========== */

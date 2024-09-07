@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Import Animated css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Import font Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- import font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="css/lichPhatSong.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="js/lichPhatSong.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="homepage flex">
+            <div class="logo" id="logo" data_url="index.html">
+                <!-- <a href="index.html"></a> -->
+                <img src="https://www.htv.com.vn/Data/Sites/1/media/logo.png" alt="">
+            </div>
+
+            <div class="toggle-btn">
+                <button class="bars"><i class="fa-solid fa-bars"></i></button>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="menuContent">
+                <ul class="main-menu">
+                    <li><a href="#">
+                            <i class="fa-solid fa-tv"></i>
+                            <div>htv Show</div>
+                        </a></li>
+                    <li><a href="news.html">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <div>tin tức</div>
+                        </a></li>
+                    <!-- <li><a href="#">
+                            <div>chuyên đề</div>
+                        </a></li> -->
+                    <li><a href="Television.html">
+                            <i class="fa-regular fa-circle-play"></i>
+                            <div>trực tuyến</div>
+                        </a></li>
+                    <li><a href="lichPhatSong.html">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <div>lịch phát sóng</div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="width-fixed">
+        <section schedule-container>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day1"></div>
+                </div>
+                <div class="list-content">
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp" alt="">
+                            <div class="title">Ngày hôm nay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day2"></div>
+                </div>
+                <div class="list-content">
+
+                </div>
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day3"></div>
+                </div>
+                <div class="list-content"></div>
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day4"></div>
+                </div>
+                <div class="list-content"></div>
+
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day5"></div>
+                </div>
+                <div class="list-content"></div>
+
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day6"></div>
+                </div>
+                <div class="list-content"></div>
+
+            </div>
+            <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day7"></div>
+                </div>
+                <div class="list-content"></div>
+
+            </div>
+            
+            <!-- <div class="home-schedule">
+                <div class="fix">
+                    <div class="day" id="day1">Thứ hai, ngày 9 tháng 10</div>
+                </div>
+                <div class="list-content">
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp" alt="">
+                            <div class="title">Ngày hôm nay</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/07/16/viaqfvc4_htv_296_168.webp"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="home-schedule">
+                <div class="day" id="day2"></div>
+            </div>
+            <div class="home-schedule">
+                <div class="day" id="day3"></div>
+            </div>
+            <div class="home-schedule">
+                <div class="day" id="day4"></div>
+            </div>
+            <div class="home-schedule">
+                <div  class="day" id="day5"></div>
+            </div>
+            <div class="home-schedule">
+                <div class="day" id="day6"></div>
+            </div>
+            <div class="home-schedule">
+                <div class="day" id="day7"></div>
+            </div> -->
+        </section>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="foot-top">
+            <div class="foot-logo">
+                <img src="https://assets.htv.com.vn/Images/tvshow/logo2.png" alt="">
+            </div>
+            <div>
+                <div class="title">Liên kết nhanh</div>
+                <ul class="foot-menu">
+                    <li>Giới thiệu</li>
+                    <li>HTV Show</li>
+                    <li>Tin tức</li>
+                    <li>Lịch phát sóng</li>
+                    <li>Liên hệ</li>
+                </ul>
+            </div>
+            <div>
+                <div class="title">Liên hệ với chúng tôi</div>
+                <ul class="foot-menu">
+                    <li>592 Cộng Hòa, Tân bình, TP.HCM</li>
+                    <li>Điện thoại: 099837234</li>
+                    <li>Fax: 131254534</li>
+                    <li>Email: web@gmail.com.vn</li>
+                    <li>Biên Tập: Nguyễn Văn A</li>
+                </ul>
+            </div>
+            <div>
+                <div class="title">kết nối với chúng tôi</div>
+                <ul class="foot-menu foot-connect">
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-youtube"></i></li>
+                    <li><i class="fa-brands fa-tiktok"></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="foot-bottom">
+            <ul class="foot-menu">
+                <li>Trang chủ</li>
+                <li>sơ đồ trang web</li>
+                <li>chính sách bảo mật</li>
+                <li>điều khoản sử dụng</li>
+            </ul>
+            <div class="des">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia neque, enim veritatis rem totam qui <br>
+                sapiente explicabo illo dignissimos nobis magni dolore eligendi accusantium officia sequi laudantium <br>
+                provident deserunt corrupti.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,24 +1,35 @@
 :root {
     --text: #404040;
     --fontIcon: #1585d4;
-    --body-color:#0F1416;
-    --menu-color:linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
-    --text-color:rgb(204 204 204 );
+    --body-color: #0F1416;
+    --menu-color: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+    --text-color: rgb(204 204 204);
 
     --active-tab-color: #f44336;
     --random-movie-box: #181D1F;
     --text-random-color: #78909C;
-    --green-color:#B5E745;
+    --green-color: #B5E745;
     --light-red: #CE9090;
 }
 
 /* ===========BASE =============== */
+html {
+    height: 100%;
+}
+
 body {
     background-color: var(--body-color);
     margin: 0;
     padding: 0;
     font-size: 12px;
     font-family: Montserrat;
+    height: max-content;
+    position: relative;
+    min-height: 100%;
+    /* padding-bottom: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
 }
 
 header {
@@ -26,7 +37,7 @@ header {
     top: 0;
     right: 0;
     left: 0;
-
+    width: 100vw;
     z-index: 100;
 }
 
@@ -50,9 +61,11 @@ ul {
 .homepage {
     /* background: linear-gradient(black,transparent); */
     background: var(--menu-color);
-    width:100%;
+    width: 100%;
     overflow: hidden;
+    border-bottom: 1px solid #3a3a3a;
 }
+
 /* CSS MENU */
 ul.main-menu {
     list-style: none;
@@ -73,13 +86,13 @@ ul.main-menu li a {
     /* background-color: rgb(255, 255, 255); */
     /* background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%); */
     transform: skewX(-25deg);
-    border-left: 1px solid #ddd;    
+    border-left: 1px solid #3a3a3a;
     position: relative;
 }
 
 
-ul.main-menu li:last-child a{
-    border-right: 1px solid #ddd;
+ul.main-menu li:last-child a {
+    border-left: 1px solid #3a3a3a;
 }
 
 ul.main-menu li a div {
@@ -90,7 +103,7 @@ ul.main-menu li a div {
 ul.main-menu li a i,
 ul.main-menu li a div {
     transform: skewX(25deg);
-    
+
 }
 
 ul.main-menu li a i {
@@ -117,6 +130,101 @@ ul.main-menu li a:hover::after {
     transform: scale(1);
     transform-origin: left;
 }
+
+/* CSS BUTTON */
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: #B71C1C;
+    display: none;
+    margin-right: 0.5rem;
+}
+
+.toggle-btn button {
+    color:white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    /* width: 100%; */
+    z-index: 9999;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .homepage {
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+        /* max-width: ; */
+        box-sizing: border-box;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .toggle-btn .close,
+    .toggle-btn .bars {
+        transition: opacity .1s, transform .4s;
+    }
+
+    .toggle-btn .close {
+        opacity: 0;
+    }
+
+    .show-menu {
+        width: 60vw !important;
+    }
+
+    .show-icon .bars {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .show-icon .close {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    .menuContent {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* right: 30%; */
+        bottom: 0;
+        width: 0;
+        background-color: rgb(34, 32, 32);
+        overflow: hidden;
+        transition: .5s;
+    }
+
+    ul.main-menu {
+        flex-direction: column;
+    }
+
+    ul.main-menu li a {
+        text-align: center;
+        transform: none;
+        padding: 2rem;
+    }
+
+    ul.main-menu li a:hover {
+        background-color: var(--text);
+    }
+
+    ul.main-menu li a i,
+    ul.main-menu li a div {
+        transform: none;
+    }
+}
+
 /* END CSS MENU */
 
 /* CSS SLIDER */
@@ -126,7 +234,7 @@ ul.main-menu li a:hover::after {
     height: 100vh;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;   
+    overflow: hidden;
 }
 
 .list {
@@ -204,7 +312,7 @@ ul.dots li.active {
 
 .slider .list .item .content {
     position: absolute;
-    top:25%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     width: 1140px;
@@ -249,7 +357,7 @@ ul.dots li.active {
 }
 
 .slider .list .item .content button:nth-child(2) {
-    background-color: transparent;
+    background-color: rgba(245, 234, 234, 0.055);
     border: 1px solid #000000;
     color: #ffffff;
 }
@@ -265,6 +373,22 @@ ul.dots li.active {
     filter: blur(8px);
 }
 
+@media screen and (max-width: 1024px) {
+    .slider .list .item .content {
+        padding-right: 0;
+        /* font-size: 1rem; */
+    }
+
+    .slider .list .item .content .title,
+    .slider .list .item .content .topic {
+        font-weight: bold;
+        font-size: 4em;
+        line-height: 1.3em;
+        color: #fff;
+    }
+
+}
+
 /* END CSS SLIDER */
 
 /* CSS CONTENT SLIDER EFFECT */
@@ -272,7 +396,7 @@ ul.dots li.active {
 .slider .list .item.effect .content .title,
 .slider .list .item.effect .content .topic,
 .slider .list .item.effect .content .des,
-.slider .list .item.effect .content .buttons{
+.slider .list .item.effect .content .buttons {
     transform: translateY(50px);
     filter: blur(20px);
     opacity: 0;
@@ -334,7 +458,7 @@ section.left {
 
 .showcase-area .viewAll {
     position: relative;
-    margin: 0 0 10px 0;
+    margin: 1rem 0 10px 0;
     text-align: center;
     display: block;
     text-transform: uppercase;
@@ -342,7 +466,7 @@ section.left {
     padding: 5px;
     background: #161e21;
     color: white;
-    
+
 }
 
 .movie-list {
@@ -360,14 +484,21 @@ section.left {
 
 .movie-item .movie-info img {
     width: 100%;
+    height: 290px;
+    display: block;
+    object-fit: cover;
 }
 
 .movie-item .movie-info .movie-title {
     display: block;
     color: white;
-    white-space: nowrap; /* Ngăn dòng xuống */
-    overflow: hidden; /* Ẩn phần tràn */
-    text-overflow: ellipsis; /* Thay thế phần tràn bằng dấu ba chấm */
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    padding: 0.3rem;
 }
 
 .movie-item .movie-info {
@@ -378,7 +509,7 @@ section.left {
 /* CSS hiệu ứng nút play */
 
 .movie-item .movie-info .movie-image {
-    height: max-content;
+    height: min-content;
     border-radius: 3px;
     overflow: hidden;
     position: relative;
@@ -492,7 +623,25 @@ section.left {
     font-weight: initial;
 }
 
+@media screen and (max-width: 1024px) {
+    .container-main{
+        flex-direction: column;
+    }
 
+    section.left {
+        width: 100%;
+    }
+
+    .movie-list .movie-item {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .movie-list .movie-item {
+        width: 50%;
+    }
+}
 
 /* CSS menu movie Hiệu ứng hộp move */
 
@@ -555,7 +704,8 @@ ul.tab>h1 {
 
 section.right {
     width: 30%;
-    height: 400px;
+    /* height: 400px; */
+    min-height: max-content;
     /* background-color: gray; */
     margin-top: 2rem;
     padding-right: 1rem;
@@ -602,7 +752,7 @@ section.right {
     margin: 1.3rem 0;
 }
 
-.random-movie a{
+.random-movie a {
     width: 70%;
     background-color: #B71C1C;
     color: white;
@@ -652,3 +802,128 @@ ul.list-channels li a:hover {
     border-left: 3px solid red;
     color: #eee;
 }
+
+@media screen and (max-width: 1024px) {
+    section.right {
+        width: 100%;
+        padding: 0 0.4rem;
+        /* box-sizing: border-box; */
+    }
+
+    .random-movie a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ============footer========== */
+footer {
+    margin-top: 2rem;
+    width: 100%;
+    height: max-content;
+    background-image: url(https://lawsmithandco.in/static/media/Footer-Background.e0626ebb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
+.foot-top {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1rem;
+    justify-content: space-between;
+    /* align-items: center; */
+    border-bottom: 1px solid gray;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+ul.foot-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.foot-menu.foot-connect {
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.foot-logo {
+    margin: auto 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+ul.foot-menu.foot-connect li {
+    padding: 1rem;
+    background-color: #475666;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    transform: skewX(-30deg);
+    box-sizing: border-box;
+    /* margin-bottom: 1rem; */
+}
+
+ul.foot-menu.foot-connect li i {
+    display: block;
+    transform: skewX(30deg);
+}
+
+ul.foot-menu li {
+    display: block;
+    padding: 0.3rem 1rem;
+    color: rgb(156, 152, 152);
+}
+
+.foot-top .title {
+    padding: 1rem 1rem;
+    color: #97b9d0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.foot-bottom .foot-menu {
+    margin-top: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.foot-bottom .foot-menu li {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.foot-bottom .foot-menu li:not(:last-child) {
+    border-right: 1px solid #475666;
+}
+
+.foot-bottom .des {
+    /* margin-top: 1rem; */
+    padding: 1rem;
+    text-align: center;
+    color: #5f717a;
+}
+
+@media screen and (max-width: 760px) {
+    footer {
+        background-color: #475666;
+    }
+
+    .foot-bottom .foot-menu li {
+        border-bottom: 1px solid #475666;
+        border-right: none !important;
+    }
+}
+
+/* .foot-top > div {
+    display: flex;
+    flex-direction: column;
+} */
+/* ============ end footer========== */

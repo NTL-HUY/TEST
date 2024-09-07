@@ -1,14 +1,14 @@
 :root {
     --text: #404040;
     --fontIcon: #1585d4;
-    --body-color:#0F1416;
-    --menu-color:linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
-    --text-color:rgb(204 204 204 );
+    --body-color: #0F1416;
+    --menu-color: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+    --text-color: rgb(204 204 204);
 
     --active-tab-color: #f44336;
     --random-movie-box: #181D1F;
     --text-random-color: #78909C;
-    --green-color:#B5E745;
+    --green-color: #B5E745;
     --light-red: #CE9090;
 }
 
@@ -26,7 +26,7 @@ header {
     top: 0;
     right: 0;
     left: 0;
-
+    width: 100vw;
     z-index: 100;
 }
 
@@ -41,8 +41,6 @@ ul {
     list-style: none;
 }
 
-
-
 .flex {
     display: flex;
     justify-content: space-around;
@@ -52,10 +50,11 @@ ul {
 .homepage {
     /* background: linear-gradient(black,transparent); */
     background: var(--menu-color);
-    width:100%;
+    width: 100%;
     overflow: hidden;
-    border-bottom: 1px solid #3a3a3a
+    border-bottom: 1px solid #3a3a3a;
 }
+
 /* CSS MENU */
 ul.main-menu {
     list-style: none;
@@ -76,13 +75,13 @@ ul.main-menu li a {
     /* background-color: rgb(255, 255, 255); */
     /* background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%); */
     transform: skewX(-25deg);
-    border-left: 1px solid #3a3a3a;    
+    border-left: 1px solid #3a3a3a;
     position: relative;
 }
 
 
-ul.main-menu li:last-child a{
-    border-right: 1px solid #3a3a3a;
+ul.main-menu li:last-child a {
+    border-left: 1px solid #3a3a3a;
 }
 
 ul.main-menu li a div {
@@ -93,7 +92,7 @@ ul.main-menu li a div {
 ul.main-menu li a i,
 ul.main-menu li a div {
     transform: skewX(25deg);
-    
+
 }
 
 ul.main-menu li a i {
@@ -120,16 +119,114 @@ ul.main-menu li a:hover::after {
     transform: scale(1);
     transform-origin: left;
 }
+
+/* CSS BUTTON */
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: #B71C1C;
+    display: none;
+    margin-right: 0.5rem;
+}
+
+.toggle-btn button {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    /* width: 100%; */
+    z-index: 9999;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .homepage {
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+        /* max-width: ; */
+        box-sizing: border-box;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .toggle-btn .close,
+    .toggle-btn .bars {
+        transition: opacity .1s, transform .4s;
+    }
+
+    .toggle-btn .close {
+        opacity: 0;
+    }
+
+    .show-menu {
+        width: 60vw !important;
+    }
+
+    .show-icon .bars {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .show-icon .close {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    .menuContent {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* right: 30%; */
+        bottom: 0;
+        width: 0;
+        background-color: rgb(34, 32, 32);
+        overflow: hidden;
+        transition: .5s;
+    }
+
+    ul.main-menu {
+        flex-direction: column;
+    }
+
+    ul.main-menu li a {
+        text-align: center;
+        transform: none;
+        padding: 2rem;
+    }
+
+    ul.main-menu li a:hover {
+        background-color: var(--text);
+    }
+
+    ul.main-menu li a i,
+    ul.main-menu li a div {
+        transform: none;
+    }
+}
+
 /* END CSS MENU */
 
 
+
 /* ========Video Section========= */
+
+
 .main-content {
     margin-top: 6%;
     padding: 0 3%;
 }
 
-
+/*=== video */
 .video-section {
     display: flex;
     width: 100%;
@@ -137,12 +234,12 @@ ul.main-menu li a:hover::after {
     position: relative;
 }
 
-.video-section .video-player{
+.video-section .video-player {
     width: 70%;
     /* position: absolute; */
     /* top: 0;
     left: 0; */
-    max-height: 560px;
+    max-height: 100%;
     background-color: gray;
     overflow: hidden;
 }
@@ -151,11 +248,10 @@ ul.main-menu li a:hover::after {
     width: 100%;
     height: 100%;
 }
+
+/*==== lịch phát sóng */
 #list-lich {
-    /* display: none; */
-    /* position: absolute; */
-    /* top: 0;
-    left: 60%; */
+
     width: 30%;
     background-color: #eee;
     max-height: 560px;
@@ -172,6 +268,11 @@ ul.main-menu li a:hover::after {
     color: white;
     padding: 1rem 1.5rem;
     font-size: 0.9rem;
+}
+
+.item-lich:hover {
+    background-color: var(--text);
+    cursor: pointer;
 }
 
 .item-lich .title {
@@ -191,9 +292,48 @@ ul.main-menu li a:hover::after {
     color: #454545;
 }
 
+@media screen and (max-width: 1024px) {
+    .video-section .video-player {
+        width: 100%;
+        height: 1000vh;
+        margin-top: 4rem;
+        display: block;
+    }
 
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
 
+    .video-section {
+        display: flex;
+        width: 100%;
+        /* max-height: 560px; */
+        /* height: 1100vh; */
+        position: relative;
+        flex-direction: column;
+    }
 
+    #list-lich {
+        width: 100%;
+        background-color: #eee;
+        max-height: 560px;
+        overflow: auto;
+        z-index: 1;
+        display: none;
+        /* flex: 1; */
+    }
+}
+
+/* ==========CHANNEL SECTION================== */
+
+.channel-section {
+    margin-top: 4rem;
+    width: 100%;
+    min-height: 50vh;
+}
+
+/* ====tab menu */
 .tab-container ul.tab {
     display: flex;
     width: 100%;
@@ -254,6 +394,8 @@ ul.main-menu li a:hover::after {
     border-bottom: none;
 }
 
+/* =====list channel  */
+
 .list-channel-container .list-items {
     display: flex;
     max-width: 100vw;
@@ -283,6 +425,8 @@ ul.main-menu li a:hover::after {
     z-index: 99;
 }
 
+
+/* ======tooltip */
 .list-channel-container .list-items .gap-item .more-info .info-container {
     position: relative;
     width: 100%;
@@ -316,10 +460,15 @@ ul.main-menu li a:hover::after {
     cursor: pointer;
 }
 
-.buttons button#danh-sach {
+.buttons button.danh-sach {
     background-color: transparent;
     color: white;
     border: 1px solid white;
+}
+
+.buttons button.danh-sach:hover {
+    background-color: rgba(223, 216, 216, 0.86);
+    color: blue;
 }
 
 .list-channel-container .list-items .gap-item .more-info img {
@@ -327,7 +476,306 @@ ul.main-menu li a:hover::after {
     height: 100%;
 }
 
+@media screen and (max-width: 1024px) {
+    .list-channel-container .list-items .gap-item {
+        width: 25%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+}
+
+
+@media screen and (max-width: 760px) {
+    .list-channel-container .list-items .gap-item {
+        width: 50%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+}
+
+/* ==========save-channel=========== */
+.save-channel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.574);
+    z-index: 9999;
+}
+
+.save-list {
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    background-color: var(--random-movie-box);
+    overflow: auto;
+    /* overflow: scroll; */
+}
+
+.save-list .header-save {
+    background: linear-gradient(81.43deg, #b71c1c -26.81%, #8e1438 87.89%);
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    /* margin-bottom: 1rem; */
+}
+
+.save-list-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.save-list-items .item {
+    width: 20%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.save-list-items .fix::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    right: 5%;
+    bottom: 10%;
+    /* background-color: rgba(0, 0, 0, 0.368); */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.707));
+}
+
+.save-list-items .item img {
+    width: 100%;
+    height: auto;
+}
+
+.save-list-items .item .fix {
+    position: relative;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.save-list-items .buttons {
+    position: absolute;
+    display: flex;
+    /* gap: 10px; */
+    /* width: 80%;  */
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    z-index: 9;
+    /* padding: 0 10px; */
+    justify-content: space-between;
+    /* width: calc(100% - 0.5rem); */
+    box-sizing: border-box;
+}
+
+.save-list-items .buttons button {
+    box-sizing: border-box;
+    padding: 0 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+    font-weight: bold;
+    width: 100%;
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .save-list {
+        position: relative;
+        width: 100%;
+    }
+
+    .save-list-items .item {
+        width: 25%;
+        
+    }
+    
+}
+@media screen and (max-width: 760px) {
+    .save-list-items .item {
+        width: 50%;
+    }
+}
+/* .save-list-items .buttons button:nth-child(2){
+    background-color: rgba(0, 0, 0, 0.167);
+    color: white;
+    border: 1px solid black;
+} */
+
+.close-popin {
+    position: fixed;
+    z-index: 99999;
+    color: white;
+    right: 5px;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    top: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.open-popin {
+    /* background-color: white; */
+    width: max-content;
+    height: max-content;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.open-popin .message {
+    background-color: white;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.open-popin .message::after {
+    position: absolute;
+    content: '';
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+    left: 100%;
+    /* display: none; */
+}
+
+.open-popin-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+
+/* ========== end save-channel=========== */
 
 
 
+/* ============footer========== */
+footer {
+    margin-top: 2rem;
+    width: 100%;
+    height: max-content;
+    background-image: url(https://lawsmithandco.in/static/media/Footer-Background.e0626ebb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
 
+.foot-top {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1rem;
+    justify-content: space-between;
+    /* align-items: center; */
+    border-bottom: 1px solid gray;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+ul.foot-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.foot-menu.foot-connect {
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.foot-logo {
+    margin: auto 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+ul.foot-menu.foot-connect li {
+    padding: 1rem;
+    background-color: #475666;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    transform: skewX(-30deg);
+    box-sizing: border-box;
+    /* margin-bottom: 1rem; */
+}
+
+ul.foot-menu.foot-connect li i {
+    display: block;
+    transform: skewX(30deg);
+}
+
+ul.foot-menu li {
+    display: block;
+    padding: 0.3rem 1rem;
+    color: rgb(156, 152, 152);
+}
+
+.foot-top .title {
+    padding: 1rem 1rem;
+    color: #97b9d0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.foot-bottom .foot-menu {
+    margin-top: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.foot-bottom .foot-menu li {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.foot-bottom .foot-menu li:not(:last-child) {
+    border-right: 1px solid #475666;
+}
+
+.foot-bottom .des {
+    /* margin-top: 1rem; */
+    padding: 1rem;
+    text-align: center;
+    color: #5f717a;
+}
+
+@media screen and (max-width: 760px) {
+    footer {
+        background-color: #475666;
+    }
+
+    .foot-bottom .foot-menu li {
+        border-bottom: 1px solid #475666;
+        border-right: none !important;
+    }
+}
+
+/* .foot-top > div {
+    display: flex;
+    flex-direction: column;
+} */
+/* ============ end footer========== */

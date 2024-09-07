@@ -32,9 +32,14 @@
 <body>
     <header>
         <div class="homepage flex">
-            <div class="logo">
+            <div class="logo" id="logo" data_url="index.html">
                 <!-- <a href="index.html"></a> -->
                 <img src="https://www.htv.com.vn/Data/Sites/1/media/logo.png" alt="">
+            </div>
+
+            <div class="toggle-btn">
+                <button class="bars"><i class="fa-solid fa-bars"></i></button>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div class="menuContent">
@@ -43,18 +48,18 @@
                             <i class="fa-solid fa-tv"></i>
                             <div>htv Show</div>
                         </a></li>
-                    <li><a href="#">
+                    <li><a href="news.html">
                             <i class="fa-regular fa-newspaper"></i>
                             <div>tin tức</div>
                         </a></li>
-                    <li><a href="#">
+                    <!-- <li><a href="#">
                             <div>chuyên đề</div>
-                        </a></li>
-                    <li><a href="#">
+                        </a></li> -->
+                    <li><a href="Television.html">
                             <i class="fa-regular fa-circle-play"></i>
                             <div>trực tuyến</div>
                         </a></li>
-                    <li><a href="#">
+                    <li><a href="lichPhatSong.html">
                             <i class="fa-solid fa-calendar-days"></i>
                             <div>lịch phát sóng</div>
                         </a></li>
@@ -73,7 +78,7 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div id="list-lich">
-                <!-- Danh sách lịch sẽ được thêm vào đây -->
+                <!-- Danh sách lịch  -->
             </div>
         </section>
 
@@ -106,7 +111,7 @@
                         <div id="tab1-1-sub2" class="tab-content">2 Nội dung tab 1 - Sub 2</div> -->
 
                         <!-- VTV -->
-                        <div class="tab-content" id="tab1-1-sub1">
+                        <div class="tab-content active-content" id="tab1-1-sub1">
                             <div class="list-channel-container">
                                 <div class="list-items">
 
@@ -176,7 +181,6 @@
                 <!-- Đang phát sóng -->
                 <div id="tab2-1" class="tab-content">
 
-                    1 Nội dung tab 2
                     <div class="tab-container sub2 sub">
                         <ul class="tab">
                             <li class="active-tab"><a href="#tab2-1-sub1">Tin Tức</a></li>
@@ -224,7 +228,97 @@
             </div>
         </section>
 
+        <button class="close-popin"><i class="fa-solid fa-xmark"></i></button>
+        <div class="open-popin">
+            <div class="message">Danh sách bạn lưu ở đây</div>
+            <button class="open-popin-btn"><i class="fa-solid fa-table-list"></i></button>
+        </div>
+
+        <section class="save-channel">
+                <div class="save-list">
+                    <div class="header-save">
+                        Danh sách kênh đã lưu
+                    </div>
+                    <div class="save-list-items">
+                        <!-- <div class="item">
+                            <div class="fix">
+                                <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/06/14/pyw7qyf1_vtv1_tet_hoa_xuan_cae436b7770f8da626663ad71801953920_296_168.webp"
+                                    alt="">
+                                <div class="buttons">
+                                    <button id="xem">Xem ngay</button>
+                                    <button id="remove">Gỡ ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="fix">
+                                <img src="https://static2.vieon.vn/vieplay-image/thumbnail_v4/2024/06/14/pyw7qyf1_vtv1_tet_hoa_xuan_cae436b7770f8da626663ad71801953920_296_168.webp"
+                                    alt="">
+                                <div class="buttons">
+                                    <button id="xem">Xem ngay</button>
+                                    <button id="list">Gỡ ngay</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+        </section>
+
     </main>
+
+    
+    <footer class="footer">
+        <div class="foot-top">
+            <div class="foot-logo">
+                <img src="https://assets.htv.com.vn/Images/tvshow/logo2.png" alt="">
+            </div>
+            <div>
+                <div class="title">Liên kết nhanh</div>
+                <ul class="foot-menu">
+                    <li>Giới thiệu</li>
+                    <li>HTV Show</li>
+                    <li>Tin tức</li>
+                    <li>Lịch phát sóng</li>
+                    <li>Liên hệ</li>
+                </ul>
+            </div>
+            <div>
+                <div class="title">Liên hệ với chúng tôi</div>
+                <ul class="foot-menu">
+                    <li>592 Cộng Hòa, Tân bình, TP.HCM</li>
+                    <li>Điện thoại: 099837234</li>
+                    <li>Fax: 131254534</li>
+                    <li>Email: web@gmail.com.vn</li>
+                    <li>Biên Tập: Nguyễn Văn A</li>
+                </ul>
+            </div>
+            <div>
+                <div class="title">kết nối với chúng tôi</div>
+                <ul class="foot-menu foot-connect">
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-youtube"></i></li>
+                    <li><i class="fa-brands fa-tiktok"></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="foot-bottom">
+            <ul class="foot-menu">
+                <li>Trang chủ</li>
+                <li>sơ đồ trang web</li>
+                <li>chính sách bảo mật</li>
+                <li>điều khoản sử dụng</li>
+            </ul>
+            <div class="des">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia neque, enim veritatis rem totam qui <br>
+                sapiente explicabo illo dignissimos nobis magni dolore eligendi accusantium officia sequi laudantium <br>
+                provident deserunt corrupti.
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
