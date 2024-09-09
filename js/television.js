@@ -169,10 +169,6 @@ window.addEventListener('load', function () {
 
     //sự kiện click trên lịch
 
-    // Xử lý tab chính
-    // $(".tab-container").each(function(){
-    // $(this).find(".tab-content:not(:first)").hide();
-    // });
 
     $(".tab a").click(function (event) {
         event.preventDefault();
@@ -460,4 +456,19 @@ window.addEventListener('load', function () {
     }
     // $('.open-popin .message').hide();
 
+    //reponsive show lich
+    let lich = $('#list-lich');
+    let btnShow = $('#show-lich');
+    let btnHide = $('#hide-lich');
+    btnShow.click(function(){
+        lich.show('slow');
+        btnHide.fadeIn('slow');
+        btnShow.hide('slow')
+    })
+
+    btnHide.click(function(){
+        btnShow.fadeIn('slow');
+        lich.hide('slow');
+        btnHide.hide('slow');
+    })
 })
